@@ -24,7 +24,7 @@ const Navigation = () => {
         <div className="right">
           <button
             onClick={() => setOpen(true)}
-            className="px-6 pt-2 pb-0.5 border border-neutral-800/50 rounded-xl hover:bg-neutral-800 hover:text-white transition-colors duration-300 font-medium"
+            className="px-5 pt-1.5 border border-neutral-800/50 rounded-xl hover:bg-neutral-800 hover:text-white transition-colors duration-300 font-medium"
           >
             <SlideText text={"Menu"} />
           </button>

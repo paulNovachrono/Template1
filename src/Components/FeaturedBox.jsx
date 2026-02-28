@@ -1,6 +1,7 @@
-import React from "react";
+import { motion } from "motion/react";
 import { SlideText } from "./SlideText";
 import { ArrowRight } from "lucide-react";
+import BlurStaggeredText from "./BlurStaggeredText";
 
 const FeaturedBox = ({
   title = "Step Into the Echoes of History",
@@ -10,11 +11,36 @@ const FeaturedBox = ({
   isReversed = false,
   onClick,
 }) => {
+  const variants = {
+    hidden: {
+      y: 60,
+      opacity: 0,
+      rotateZ: 2,
+    },
+    visible: {
+      y: 0,
+      opacity: 1,
+      rotateZ: 0,
+    },
+    exit: {
+      y: 40,
+      opacity: 0,
+      rotateZ: -2,
+    },
+  };
   return (
-    <div
+    <motion.div
+      variants={variants}
+      initial="hidden"
+      whileInView="visible"
+      exit="exit"
+      transition={{
+        duration: 0.9,
+        ease: [0.22, 1, 0.36, 1],
+      }}
+      viewport={{ once: false, amount: 0.25 }}
       className={`
-        max-w-6xl mx-auto bg-neutral-200 rounded-[40px] p-8 md:p-16 lg:p-20 
-        /* Mobile: Grid layout to reorder children | Desktop: Flex layout */
+        max-w-6xl mx-auto bg-neutral-200 rounded-[40px] p-8 md:p-10  
         grid grid-cols-1 lg:flex items-center gap-8 md:gap-12 lg:gap-20 
         transition-all duration-500
         ${isReversed ? "lg:flex-row-reverse" : "lg:flex-row"}
@@ -42,11 +68,11 @@ const FeaturedBox = ({
       <div className="flex-1 space-y-6 md:space-y-8 text-left order-3 lg:order-none">
         {/* Title for Desktop only */}
         <h2 className="hidden lg:block text-4xl md:text-5xl font-bold tracking-tight text-neutral-900 leading-[1.1]">
-          {title}
+          <BlurStaggeredText text={title} />
         </h2>
 
         <p className="text-lg md:text-xl text-neutral-600 leading-relaxed max-w-lg">
-          {description}
+          <BlurStaggeredText text={description} />
         </p>
 
         <button
@@ -59,7 +85,7 @@ const FeaturedBox = ({
           </div>
         </button>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

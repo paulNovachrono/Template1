@@ -15,8 +15,8 @@ export default function Hero() {
   ];
 
   return (
-    <section className="relative bg-neutral-100 py-28 md:py-36 overflow-hidden">
-      <div className="max-w-6xl mx-auto px-6 text-center ">
+    <section className="relative bg-neutral-100 py-14 md:py-36 overflow-hidden">
+      <div className="max-w-6xl mx-auto px-6 text-center flex flex-col items-center ">
         {/* Heading */}
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-semibold tracking-tight text-neutral-900 leading-[1.05]">
           <BlurStaggeredText text={`Discover breathtaking`} />
@@ -31,8 +31,7 @@ export default function Hero() {
         <p className="mt-6 text-lg md:text-xl text-neutral-600 max-w-2xl mx-auto">
           <BlurStaggeredText
             delay={0.9}
-            text={`Plan unforgettable journeys, explore hidden gems, and book your next
-          adventure with confidence.`}
+            text={`Plan unforgettable journeys, explore hidden gems, and book your next adventure with confidence.`}
           />
         </p>
 
@@ -52,14 +51,14 @@ export default function Hero() {
         initial={{ y: 80, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
-        className="mt-20 md:mt-28 flex flex-wrap justify-center gap-6 px-6 max-w-6xl mx-auto"
+        className="mt-20 md:mt-28 flex flex-wrap justify-center md:gap-6 px-6 max-w-6xl mx-auto"
       >
         {images.map((src, i) => (
           <div
             key={i}
             className={`
         relative 
-        w-[200px] h-[260px] 
+        w-[100px] h-[100px] 
         md:w-[220px] md:h-[240px]
         lg:w-[300px] lg:h-[220 px]
         rounded-2xl 

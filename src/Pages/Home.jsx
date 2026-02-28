@@ -1,3 +1,4 @@
+import { Cta } from "../Components/Cta";
 import Hero from "../Components/Hero";
 import TourType from "../Components/TourType";
 
@@ -6,6 +7,7 @@ const Home = () => {
     <section>
       <Hero />
       <TourType />
+      <Cta />
     </section>
   );
 };
